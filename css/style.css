@@ -478,3 +478,44 @@ header .menu:hover ~ .menu-box {
 footer { background-color: #333; }
 .copyright { font-size: 0.9em; color: #aaa; }
 /* / 푸터 영역 */
+
+
+/* 스토어 - 검색 영역 */
+.store .search {
+    margin: 20px auto;
+    max-width: 480px;
+    height: 45px;
+    background-color: #fff;
+    border-radius: 25px;
+    position: relative;
+    border: 1px solid #eee;
+    box-shadow: 10px 8px 18px 3px #0002;
+}
+
+.store .search .icon {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #ea2a2a;
+    text-align: center;
+}
+
+.store .search input {
+    position: absolute;
+    left: 45px;
+    top: 0;
+    width: calc(100% - 85px);
+    height: 45px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding-left: 1em;
+
+}
+
+.store .search input::placeholder { color: #888; }
+
+/* / 스토어 - 검색 영역 */
