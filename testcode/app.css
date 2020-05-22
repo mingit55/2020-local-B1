@@ -1,0 +1,279 @@
+*
+		{
+			margin: 0px;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+
+		body
+		{
+			width: 100vw;
+			height: 100vh;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+
+		.red
+		{
+			background: red;
+		}
+
+		.green
+		{
+			background: green;
+		}
+
+		.blue
+		{
+			background: blue;
+		}
+
+		.slide
+		{
+			width: 800px;
+			height: 500px;
+			position: relative;
+		}
+
+		.slide > div
+		{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+		}
+
+		.slide > .slide-scenes
+		{
+			/* 슬라이드의 애니메이션 
+				애니메이션은 현재 라디오버튼의 클릭상태에 따라 갈아준다.
+			*/
+			width: 300%;
+			display: flex;
+			z-index: 1;
+			animation-duration: 8s;
+			animation-iteration-count: infinite;
+			animation-delay: calc(-8.0s + 0.4s);
+		}
+
+		.slide > .slide-scenes > .slide-scene
+		{
+			/* 슬라이드 내용물 디자인 */
+			width: 100%;
+			height: 100%;
+			color: white;
+			font-size: 32px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.slide
+		{
+			z-index: 2;
+			display: flex;
+			overflow: hidden;
+		}
+
+		.slide > .slide-controller
+		{
+			width: 32px;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.3);
+			cursor: pointer;
+			transition: background 0.3s;
+			animation-duration: 8s;
+			animation-iteration-count: infinite;
+			animation-delay: calc(-8.0s + 0.4s);
+			position: absolute;
+			z-index: 2;
+			display: flex;
+			color: white;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.slide > .slide-controller:hover
+		{
+			background: rgba(0, 0, 0, 0.6);
+		}
+
+		.slide > .slide-controller.left
+		{
+			left: 0px;
+		}
+
+		.slide > .slide-controller.right
+		{
+			right: 0px;
+		}
+
+		@keyframes scenes-1
+		{
+			000% { left: calc(100% * -0); }
+			020% { left: calc(100% * -0); }
+
+			025% { left: calc(100% * -1); }
+			045% { left: calc(100% * -1); }
+
+			050% { left: calc(100% * -2); }
+			070% { left: calc(100% * -2); }
+
+			075% { left: calc(100% * -1); }
+			095% { left: calc(100% * -1); }
+
+			100% { left: calc(100% * -0); }
+		}
+
+		@keyframes scenes-2
+		{
+			000% { left: calc(100% * -1); }
+			020% { left: calc(100% * -1); }
+
+			025% { left: calc(100% * -2); }
+			045% { left: calc(100% * -2); }
+
+			050% { left: calc(100% * -1); }
+			070% { left: calc(100% * -1); }
+
+			075% { left: calc(100% * -0); }
+			095% { left: calc(100% * -0); }
+
+			100% { left: calc(100% * -1); }
+		}
+
+		@keyframes scenes-3
+		{
+			000% { left: calc(100% * -2); }
+			020% { left: calc(100% * -2); }
+
+			025% { left: calc(100% * -1); }
+			045% { left: calc(100% * -1); }
+
+			050% { left: calc(100% * -0); }
+			070% { left: calc(100% * -0); }
+
+			075% { left: calc(100% * -1); }
+			095% { left: calc(100% * -1); }
+
+			100% { left: calc(100% * -2); }
+		}
+
+		@keyframes scenes-4
+		{
+			000% { left: calc(100% * -1); }
+			020% { left: calc(100% * -1); }
+
+			025% { left: calc(100% * -0); }
+			045% { left: calc(100% * -0); }
+
+			050% { left: calc(100% * -1); }
+			070% { left: calc(100% * -1); }
+
+			075% { left: calc(100% * -2); }
+			095% { left: calc(100% * -2); }
+
+			100% { left: calc(100% * -1); }
+		}
+
+		.slide > .slide-scenes { animation-name: scenes-1; }
+	
+		.slide-active-1:checked ~ .slide > .slide-scenes { animation-name: scenes-1; }
+		.slide-active-2:checked ~ .slide > .slide-scenes { animation-name: scenes-2; }
+		.slide-active-3:checked ~ .slide > .slide-scenes { animation-name: scenes-3; }
+		.slide-active-4:checked ~ .slide > .slide-scenes { animation-name: scenes-4; }
+
+		@keyframes controller-1
+		{
+			000.0% { z-index: 2; }
+			024.9% { z-index: 2; }
+
+			025.0% { z-index: 0; }
+			049.9% { z-index: 0; }
+
+			050.0% { z-index: 0; }
+			074.9% { z-index: 0; }
+
+			075.0% { z-index: 0; }
+			099.9% { z-index: 0; }
+
+			100.0% { z-index: 2; }
+		}
+
+		@keyframes controller-2
+		{
+			000.0% { z-index: 0; }
+			024.9% { z-index: 0; }
+
+			025.0% { z-index: 2; }
+			049.9% { z-index: 2; }
+
+			050.0% { z-index: 0; }
+			074.9% { z-index: 0; }
+
+			075.0% { z-index: 0; }
+			099.9% { z-index: 0; }
+
+			100.0% { z-index: 0; }
+		}
+
+		@keyframes controller-3
+		{
+			000.0% { z-index: 0; }
+			024.9% { z-index: 0; }
+
+			025.0% { z-index: 0; }
+			049.9% { z-index: 0; }
+
+			050.0% { z-index: 2; }
+			074.9% { z-index: 2; }
+
+			075.0% { z-index: 0; }
+			099.9% { z-index: 0; }
+
+			100.0% { z-index: 0; }
+		}
+
+		@keyframes controller-4
+		{
+			000.0% { z-index: 0; }
+			024.9% { z-index: 0; }
+
+			025.0% { z-index: 0; }
+			049.9% { z-index: 0; }
+
+			050.0% { z-index: 0; }
+			074.9% { z-index: 0; }
+
+			075.0% { z-index: 2; }
+			099.9% { z-index: 2; }
+
+			100.0% { z-index: 0; }
+		}
+
+		.slide-active-1:checked ~ .slide > .slide-controller[data-idx='1'] { animation-name: controller-1; }
+		.slide-active-1:checked ~ .slide > .slide-controller[data-idx='2'] { animation-name: controller-2; }
+		.slide-active-1:checked ~ .slide > .slide-controller[data-idx='3'] { animation-name: controller-3; }
+		.slide-active-1:checked ~ .slide > .slide-controller[data-idx='4'] { animation-name: controller-4; }
+
+		.slide-active-2:checked ~ .slide > .slide-controller[data-idx='1'] { animation-name: controller-4; }
+		.slide-active-2:checked ~ .slide > .slide-controller[data-idx='2'] { animation-name: controller-1; }
+		.slide-active-2:checked ~ .slide > .slide-controller[data-idx='3'] { animation-name: controller-2; }
+		.slide-active-2:checked ~ .slide > .slide-controller[data-idx='4'] { animation-name: controller-3; }
+
+		.slide-active-3:checked ~ .slide > .slide-controller[data-idx='1'] { animation-name: controller-3; }
+		.slide-active-3:checked ~ .slide > .slide-controller[data-idx='2'] { animation-name: controller-4; }
+		.slide-active-3:checked ~ .slide > .slide-controller[data-idx='3'] { animation-name: controller-1; }
+		.slide-active-3:checked ~ .slide > .slide-controller[data-idx='4'] { animation-name: controller-2; }
+
+		.slide-active-4:checked ~ .slide > .slide-controller[data-idx='1'] { animation-name: controller-2; }
+		.slide-active-4:checked ~ .slide > .slide-controller[data-idx='2'] { animation-name: controller-3; }
+		.slide-active-4:checked ~ .slide > .slide-controller[data-idx='3'] { animation-name: controller-4; }
+		.slide-active-4:checked ~ .slide > .slide-controller[data-idx='4'] { animation-name: controller-1; }
+		/*.slide-active-2:checked ~ .slide > .slide-controller[data-idx='2'] { animation-name: controller-2; }*/
+		/*.slide-active-3:checked ~ .slide > .slide-controller[data-idx='3'] { animation-name: controller-3; }*/
+		/*.slide-active-4:checked ~ .slide > .slide-controller[data-idx='4'] { animation-name: controller-4; }*/

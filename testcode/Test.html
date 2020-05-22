@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Test</title>
+	<link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+	<input type="radio" name="slide" class="slide-active-1" id="slide-1" hidden="" checked="">
+	<input type="radio" name="slide" class="slide-active-2" id="slide-2" hidden="">
+	<input type="radio" name="slide" class="slide-active-3" id="slide-3" hidden="">
+	<input type="radio" name="slide" class="slide-active-4" id="slide-4" hidden="">
+
+	<div class="slide">
+		<div class="slide-scenes">
+			<div class="slide-scene slide-scene-1 red">1</div>
+			<div class="slide-scene slide-scene-2 green">2</div>
+			<div class="slide-scene slide-scene-3 blue">3</div>
+		</div>
+
+		<label class="slide-controller left" for="slide-2" data-idx="1">1-2</label>
+		<label class="slide-controller left" for="slide-3" data-idx="2">2-3</label>
+		<label class="slide-controller left" for="slide-4" data-idx="3">3-4</label>
+		<label class="slide-controller left" for="slide-1" data-idx="4">4-1</label>
+
+		<label class="slide-controller right" for="slide-2" data-idx="1">1-2</label>
+		<label class="slide-controller right" for="slide-3" data-idx="2">2-3</label>
+		<label class="slide-controller right" for="slide-4" data-idx="3">3-4</label>
+		<label class="slide-controller right" for="slide-1" data-idx="4">4-1</label>
+	</div>
+</body>
+
+</html>
