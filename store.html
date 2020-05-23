@@ -9,7 +9,7 @@
     <script src="jquery-3.4.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/Cart.js"></script>
+    <script src="js/PurchaseList.js"></script>
     <script src="js/Product.js"></script>
     <script src="js/App.js"></script>
     <script>
@@ -62,7 +62,7 @@
     <!-- 장바구니 영역 -->
     <div class="cart position-relative">
         <div class="container padding pb-5">
-            <div class="sticky-top bg-white border-bottom text-center text-lg-left mb-5 py-3">
+            <div class="sticky-top bg-white text-center text-lg-left mb-5 py-3">
                 <span class="fx-6 font-weight-light text-red">장바구니</span>
             </div>
             <div class="row">
@@ -76,52 +76,24 @@
                                 <div class="count">구매 개수</div>
                                 <div class="total">총합</div>
                             </div>
-                            <div class="cart-item">
-                                <div class="image">
-                                    <img src="images/products/product_1.jpg" title="상품 이미지" alt="상품 이미지">
-                                </div>
-                                <div class="info">
-                                    <div class="px-5 w-100">
-                                        <div class="fx-2">마틸라</div>
-                                        <div class="mt-1 fx-n2 text-muted">마틸다</div>
-                                    </div>
-                                </div>
-                                <div class="price">
-                                    <div class="text-center">
-                                        <span class="text-muted">20,000 원</span>
-                                    </div>
-                                </div>
-                                <div class="count">
-                                    <div class="text-center">
-                                        <input type="number" class="i-count" min="0" value="1">
-                                    </div>
-                                </div>
-                                <div class="total">
-                                    <div class="text-center">
-                                        <span class="fx-2 font-weight-bold">20,000</span>
-                                    원
-                                    </div>
-                                </div>
-                                <div class="remove">
-                                    <div class="text-center">
-                                        <button>&times;</button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="mt-5">
+            <div class="mt-5 d-flex justify-content-between">
                 <div>
                     <span class="text-muted fx-2">총 합계</span>
                     <span class="ml-3 fx-5 text-red cart-total">20,000</span>
                     <span class="ml-1">원</span>
                 </div>
+                <div class="ml-5">
+                    <button class="btn-submit" data-target="#buy-modal" data-toggle="modal">구매하기</button>
+                </div>
             </div>
         </div>
     </div>
     <!-- / 장바구니 영역 -->
+
     <!-- 스토어 영역 -->
     <input type="checkbox" id="drag-area" checked hidden>
     <div class="store position-relative">
@@ -177,5 +149,45 @@
         </div>
     </footer>
     <!-- / 푸터 영역 -->
+    <!-- 구매하기 모달 -->
+    <div id="buy-modal" class="modal fade" tabindex="-1" role="dialog">
+        <form class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="fx-2 text-red">상품 구매</div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="username">구매자 이름</label>
+                        <input type="text" id="username" class="form-control" placeholder="이름을 입력하세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">배송지 주소</label>
+                        <input type="text" id="address" class="form-control" placeholder="주소을 입력하세요">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="text-right">
+                        <button class="btn bg-red text-white">구매 완료</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- / 구매하기 모달 -->
+
+    <!-- 구매 내역 모달 -->
+    <div id="purchase-modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="text-center">
+                        <img title="구매 내역" alt="구매 내역">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / 구매 내역 모달 -->
 </body>
 </html>

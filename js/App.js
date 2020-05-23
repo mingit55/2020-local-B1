@@ -123,6 +123,29 @@ class App {
                 this.cartRender();
             }
         });
+
+        $("#buy-modal form").on("submit", e => {
+            e.preventDefault();
+            
+            // #1 영수증 출력
+            let purchaseList = new PurchaseList(this.cartList);
+            let outputURL = purchaseList.getImage();
+
+            // #2 장바구니를 비운다
+            this.cartList.forEach(cartItem => {
+                cartItem.buyCount = 0;
+                cartItem.cartRender();
+            });
+            this.cartList = [];
+            this.cartRender();
+            
+        
+
+            $("#buy-modal").modal("hide");
+            $("#purchase-modal img").attr("src", outputURL);
+            $("#purchase-modal").modal("show");
+        });
+
     }
 
     getJSON(){
