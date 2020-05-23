@@ -504,14 +504,6 @@ footer { background-color: #333; }
     color: #555;
     font-size: 0.9em;
     padding: 5px 20px;
-    appearance: none;
-    -webkit-appearance: none;
-}
-
-.cart-list .i-count::-webkit-inner-spin-button,
-.cart-list .i-count::-webkit-outer-spin-button {
-    appearance: none;
-    -webkit-appearance: none;
 }
 
 .cart-list .remove button {
@@ -564,7 +556,7 @@ footer { background-color: #333; }
 /* / 스토어 - 검색 영역 */
 
 /* 스토어 - 물품 영역 */
-/* .store-list { overflow: hidden; } */
+.store-item { user-select: none; }
 
 .store-item .image {
     position: relative;
