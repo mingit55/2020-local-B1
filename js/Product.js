@@ -45,9 +45,9 @@ class Product {
                                                     </div>
                                                 </div>`);
         } else {
-            this.storeElem.querySelector(".p-name").innerText = this.name;
-            this.storeElem.querySelector(".p-brand").innerText = this.brand;
-            this.storeElem.querySelector(".p-price").innerText = this.price.toLocaleString();
+            this.storeElem.querySelector(".p-name").innerHTML = this.name;
+            this.storeElem.querySelector(".p-brand").innerHTML = this.brand;
+            this.storeElem.querySelector(".p-price").innerHTML = this.price.toLocaleString();
         }
     }
 

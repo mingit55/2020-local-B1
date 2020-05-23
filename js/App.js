@@ -25,10 +25,31 @@ class App {
     }
 
     storeRender(){
-        this.storeElem.innerHTML = "";
-        this.storeList.forEach(product => {
-            this.storeElem.append(product.storeElem);
+        let viewList = this.storeList;
+        viewList.forEach(product => {
+            product.init();
         });
+        
+        if(typeof this.filter_word == "string" && this.filter_word.length > 0){
+            let regex = new RegExp(this.filter_word)
+            viewList = viewList
+                .filter(item => regex.test(item.name) || regex.test(item.brand))
+                .map(item => {
+                    item.name = item.name.replace(regex, m => `<span class="bg-yellow">${m}</span>`);
+                    item.brand = item.brand.replace(regex, m => `<span class="bg-yellow">${m}</span>`);
+                    return item;
+                });
+        }
+
+        this.storeElem.innerHTML = "";
+        if(viewList.length > 0) {
+            viewList.forEach(product => {
+                product.storeRender();
+                this.storeElem.append(product.storeElem);
+            });
+        } else {
+            this.storeElem.innerHTML = "<p class='text-center py-4'>일치하는 상품이 없습니다.</p>";
+        }
     }
 
     cartRender(){
@@ -140,6 +161,29 @@ class App {
             $("#purchase-modal").modal("show");
         });
 
+
+        // # 검색 영역
+        $(".search input").on("input", e => {
+            let keyword = e.target.value
+                .trim()
+                .replace(/([.*\^$\[\]\\\/]+)/g, "\\$1")
+                .replace(/(ㄱ)/g, "[가-깋]")
+                .replace(/(ㄴ)/g, "[나-닣]")
+                .replace(/(ㄷ)/g, "[다-딯]")
+                .replace(/(ㄹ)/g, "[라-맇]")
+                .replace(/(ㅁ)/g, "[마-밓]")
+                .replace(/(ㅂ)/g, "[바-빟]")
+                .replace(/(ㅅ)/g, "[사-싷]")
+                .replace(/(ㅇ)/g, "[아-잏]")
+                .replace(/(ㅈ)/g, "[자-짛]")
+                .replace(/(ㅊ)/g, "[차-칳]")
+                .replace(/(ㅋ)/g, "[카-킿]")
+                .replace(/(ㅌ)/g, "[타-팋]")
+                .replace(/(ㅍ)/g, "[파-핗]")
+                .replace(/(ㅎ)/g, "[하-힣]");
+            this.filter_word = keyword;
+            this.storeRender();
+        });
     }
 
     getJSON(){
