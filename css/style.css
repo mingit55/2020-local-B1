@@ -480,6 +480,51 @@ footer { background-color: #333; }
 /* / 푸터 영역 */
 
 
+/* 스토어 */
+
+/* 스토어 - 장바구니 */
+
+.cart-list-wrap { overflow: auto; }
+.cart-list { display: flex; flex-direction: column; min-width: 768px; }
+.cart-list .cart-item { display: flex; height: 128px; align-items: center; }
+.cart-list .cart-item:not(:last-child) { border-bottom: 1px solid #eaeaea; }
+.cart-list img { width: 80px; height: 80px; object-fit: cover; }
+
+.cart-list .image { flex: 0 0 80px; max-width: 80px; }
+.cart-list .info { flex: 0 0 30%; max-width: 30%; text-align: left; }
+.cart-list .price, .cart-list .count { flex: 0 0 15%; max-width: 15%; }
+.cart-list .total { flex: 0 0 25%; max-width: 25%; }
+.cart-list .remove { flex: 0 0 calc(15% - 80px); max-width: calc(15% - 80px); }
+
+.cart-list .i-count {
+    width: 80px;
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    outline: none;
+    color: #555;
+    font-size: 0.9em;
+    padding: 5px 0 5px 20px;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.cart-list .i-count::-webkit-inner-spin-button,
+.cart-list .i-count::-webkit-outer-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.cart-list .remove button {
+    border: none;
+    background: none;
+    color: #888;
+    font-size: 1.3em;
+    outline: none;
+}
+
+
+/* / 스토어 - 장바구니 */
+
 /* 스토어 - 검색 영역 */
 .store .search {
     width: 100%;
@@ -521,24 +566,48 @@ footer { background-color: #333; }
 /* 스토어 - 물품 영역 */
 .store-item .image {
     width: 100%;
-    height: 250px;
+    height: 350px;
     border-radius: 10px;
     overflow: hidden;
 }
 
 .store-item .image img { width: 100%; height: 100%; object-fit: cover; }
 
-.store .drag-drop {
-    height: 80px;
-    background-color: #eee;
+.store .drag-box {
+    background-color: #ea2a2a;
     border-radius: 15px;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 20px;
+    width: 300px;
+    height: 200px;
+    box-shadow: 0 1px 3px 1px #0002;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-30px);
+    transition: 0.4s;
 }
 
-.store .drag-drop p {
-    line-height: 80px;
-    text-align: center;
-    color: #555;
-    user-select: none;
+.store .drag-box::before {
+    content: '';
+    position: absolute;
+    right: 20px;
+    top: -5.5px;
+    background-color: #ea2a2a;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    transform: rotate(45deg);
+}
+
+#drag-area:checked ~ .store .drag-box {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
 }
 
 /* / 스토어 - 물품 영역 */
+
+
+/* / 스토어 */

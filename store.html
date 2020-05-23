@@ -9,6 +9,14 @@
     <script src="jquery-3.4.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/Cart.js"></script>
+    <script src="js/Product.js"></script>
+    <script src="js/App.js"></script>
+    <script>
+        window.onload = () => {
+            let store = new App();
+        };
+    </script>
 </head>
 <body>
     <!-- 헤더 영역 -->
@@ -52,13 +60,56 @@
     </header>
     <!-- / 헤더 영역 -->
     <!-- 장바구니 영역 -->
-    <div class="cart">
+    <div class="cart position-relative">
         <div class="container padding pb-5">
-            <div class="fx-6 font-weight-light text-red">장바구니</div>
-            <hr class="mt-3 mb-5">
-            <div class="cart-list">
-                <div class="cart-item">
-                      
+            <div class="sticky-top bg-white border-bottom text-center text-lg-left mb-5 py-3">
+                <span class="fx-6 font-weight-light text-red">장바구니</span>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="cart-list-wrap">
+                        <div class="cart-list">
+                            <div class="cart-head d-flex text-center text-muted border-bottom py-3">
+                                <div class="image">이미지</div>
+                                <div class="info text-center">상품 정보</div>
+                                <div class="price">가격</div>
+                                <div class="count">구매 개수</div>
+                                <div class="total">총합</div>
+                            </div>
+                            <div class="cart-item">
+                                <div class="image">
+                                    <img src="images/products/product_1.jpg" title="상품 이미지" alt="상품 이미지">
+                                </div>
+                                <div class="info">
+                                    <div class="px-5 w-100">
+                                        <div class="fx-2">마틸라</div>
+                                        <div class="mt-1 fx-n2 text-muted">마틸다</div>
+                                    </div>
+                                </div>
+                                <div class="price">
+                                    <div class="text-center">
+                                        <span class="text-muted">20,000 원</span>
+                                    </div>
+                                </div>
+                                <div class="count">
+                                    <div class="text-center">
+                                        <input type="number" class="i-count" min="0" value="1">
+                                    </div>
+                                </div>
+                                <div class="total">
+                                    <div class="text-center">
+                                        <span class="fx-2 font-weight-bold">20,000</span>
+                                    원
+                                    </div>
+                                </div>
+                                <div class="remove">
+                                    <div class="text-center">
+                                        <button>&times;</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="mt-5">
@@ -72,9 +123,10 @@
     </div>
     <!-- / 장바구니 영역 -->
     <!-- 스토어 영역 -->
-    <div class="store">
+    <input type="checkbox" id="drag-area" checked hidden>
+    <div class="store position-relative">
         <div class="container padding pt-5">
-            <div class="row justify-content-between align-items-end">
+            <div class="sticky-top bg-white row justify-content-between align-items-end border-bottom mb-5 py-3">
                 <div class="col-lg-7 col-12 text-center text-lg-left mb-4 mb-lg-0">
                     <span class="fx-6 font-weight-light text-red">스토어</span>
                 </div>
@@ -83,35 +135,35 @@
                         <span class="icon"><i class="fa fa-search"></i></span>
                         <input type="text" placeholder="검색어를 입력하세요">
                     </div>
-                    <label for="cart" class="d-inline-block text-red ml-3">
+                    <label for="drag-area" class="d-inline-block text-red ml-3">
                         <i class="fa fa-shopping-cart fa-2x"></i>
                     </label>
                 </div>
+                <div class="drag-box d-flex justify-content-center align-items-center">
+                    <div class="text-center text-white">
+                        <i class="fa fa-shopping-cart fa-5x"></i>
+                        <p class="text-white fx-n2 mt-3">이곳에 상품을 놓아주세요</p>
+                    </div>
+                </div>
             </div> 
-            <hr class="mt-3 mb-5">
-            <div class="row">
-                <div class="col-lg-3 col-md-4 col-12">
+            <div class="store-list row">
+                <div class="col-lg-4 col-md-4 col-12 mb-5">
                     <div class="store-item">
                         <div class="image">
                             <img src="images/products/product_1.jpg" title="상품 이미지" alt="상품 이미지">
                         </div>
                         <div class="p-3 d-flex justify-content-between align-items-end">
                             <div>
-                                <div class="fx-n3 text-muted">마틸라</div>
-                                <div class="mt-1 fx-3">마틸라</div>
+                                <div class="p-name fx-n3 text-muted">마틸라</div>
+                                <div class="p-brand mt-1 fx-3">마틸라</div>
                             </div>
                             <div>
                                 <div>
-                                    <span class="fx-5 text-red">17,100</span>
+                                    <span class="p-price fx-5 text-red">17,100</span>
                                     <span class="ml-1">원</span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-12 mt-5">
-                    <div class="drag-drop">
-                        <p>이곳에 상품을 넣어주세요</p>
                     </div>
                 </div>
             </div>
