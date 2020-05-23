@@ -34,13 +34,7 @@ class App {
     cartRender(){
         let total = this.cartList.reduce((p, c) => p + c.initial_data.price * c.buyCount, 0);
 
-        this.cartElem.innerHTML = `<div class="cart-head d-flex text-center text-muted border-bottom py-3">
-                                        <div class="image">이미지</div>
-                                        <div class="info text-center">상품 정보</div>
-                                        <div class="price">가격</div>
-                                        <div class="count">구매 개수</div>
-                                        <div class="total">총합</div>
-                                    </div>`;
+        this.cartElem.innerHTML = ``;
         if(this.cartList.length > 0) {
             this.cartList.forEach(product => {
                 this.cartElem.append(product.cartElem);

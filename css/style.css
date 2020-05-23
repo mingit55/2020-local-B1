@@ -490,11 +490,11 @@ footer { background-color: #333; }
 .cart-list .cart-item:not(:last-child) { border-bottom: 1px solid #eaeaea; }
 .cart-list img { width: 80px; height: 80px; object-fit: cover; }
 
-.cart-list .image { flex: 0 0 80px; max-width: 80px; }
-.cart-list .info { flex: 0 0 30%; max-width: 30%; text-align: left; }
-.cart-list .price, .cart-list .count { flex: 0 0 15%; max-width: 15%; }
-.cart-list .total { flex: 0 0 25%; max-width: 25%; }
-.cart-list .remove { flex: 0 0 calc(15% - 80px); max-width: calc(15% - 80px); }
+.cart .image { flex: 0 0 80px; max-width: 80px; }
+.cart .info { flex: 0 0 30%; max-width: 30%; text-align: left; }
+.cart .price, .cart .count { flex: 0 0 15%; max-width: 15%; }
+.cart .total { flex: 0 0 25%; max-width: 25%; }
+.cart .remove { flex: 0 0 calc(15% - 80px); max-width: calc(15% - 80px); }
 
 .cart-list .i-count {
     width: 80px;
@@ -564,6 +564,8 @@ footer { background-color: #333; }
 /* / 스토어 - 검색 영역 */
 
 /* 스토어 - 물품 영역 */
+.store { min-height: 500px; }
+
 .store-item { user-select: none; }
 
 .store-item .image {
