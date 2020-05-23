@@ -72,7 +72,7 @@ class Product {
                                                     </div>
                                                     <div class="count">
                                                         <div class="text-center">
-                                                            <input type="number" class="i-count c-count" min="0" value="${this.buyCount}" data-id="${this.id}">
+                                                            <input type="number" class="i-count c-count" min="1" value="${this.buyCount}" data-id="${this.id}">
                                                         </div>
                                                     </div>
                                                     <div class="total">
@@ -83,7 +83,7 @@ class Product {
                                                     </div>
                                                     <div class="remove">
                                                         <div class="text-center">
-                                                            <button>&times;</button>
+                                                            <button data-id=${this.id}>&times;</button>
                                                         </div>
                                                     </div>
                                                 </div>`);

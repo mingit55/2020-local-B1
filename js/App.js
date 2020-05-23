@@ -104,13 +104,25 @@ class App {
         // # 장바구니 영역
         $(this.cartElem).on("input", ".c-count", e => {
             let id = e.target.dataset.id;
-            let value = e.currentTarget.value ? e.currentTarget.value : 0;
+            let value = e.target.value ? e.target.value : 1;
             let product = this.cartList.find(cartItem => cartItem.id == id);
             product.buyCount = parseInt(value);
             product.cartRender();
             this.cartRender();
-            e.currentTarget.focus();
+            e.target.focus();
         }); 
+
+        $(this.cartElem).on("click", ".remove button", e => {
+            let id = e.currentTarget.dataset.id;
+            let idx = this.cartList.findIndex(cartItem => cartItem.id == id);
+            if(idx >= 0){
+                let cart = this.cartList[idx];
+                cart.buyCount = 0;
+                cart.cartRender();
+                this.cartList.splice(idx, 1);
+                this.cartRender();
+            }
+        });
     }
 
     getJSON(){
